@@ -62,7 +62,7 @@ const HamburgerMenu = () => {
       <a href="https://projectsav.netlify.app"><img src="https://projectsav.netlify.app/logo1.jpg" alt="" className="h-16 rounded-md m-2"/></a>
       <div className="w-full flex justify-center items-center">
         <div className="sm:cursor-pointer fixed top-2 -left-auto z-[99] rounded-lg bg-fuchsia-500" onClick={()=>setShowMenu(!showMenu)}>
-          <HiMenuAlt2 size={80}/>
+          <HiMenuAlt2 size={60}/>
         </div>
         <nav
           className={`fixed z-[99] flex items-center gap-5 bg-fuchsia-500 px-6 py-3 backdrop-blur-md rounded-full text-white duration-300 ${showMenu ? "top-20" : "top-[-100%]"}`}>
@@ -79,21 +79,21 @@ const HamburgerMenu = () => {
 /////////////////////////////////
 const HEROCONTENT=[
   {count:"3+ years",text:"of experience in Web development"},
-  {count:"30+ projects",text:"worked in my career"}
+  {count:"70+ projects",text:"worked in my career"}
 ]
 const Hero = () => {
   return (
     <section className="overflow-hidden">
       <div className="min-h-screen relative flex md:flex-row flex-col-reverse md:items-end justify-center items-center">
         
-        <div data-aos="slide-down" data-aos-delay="100" className="absolute h-full md:w-4/12 w-1/3 top-0 right-0 bg-primaryLinear bottom-0 -z-10">
-          <h1 className="rotate-90 absolute top-[30%] right-[-15%] text-[#EAF2FA]">ALAN{" "}<span className="text-text_dark_primary">VU</span></h1>
+        <div data-aos="slide-up" data-aos-delay="100" className="absolute h-full md:w-4/12 w-1/2 top-0 right-0 bg-yellow-500 bottom-0 -z-10">
+          <h1 className="rotate-90 absolute top-[30%] right-[-15%] text-white">ALAN{" "}<span className="text-text_dark_primary">VU</span></h1>
         </div>
         <div className="md:h-[37rem] h-96">{/*1st col*/}
           <img src='alan.png' data-aos="slide-right" alt='' className="h-full object-cover"/>
         </div>
         <div className="pb-16 px-6 pt-5" data-aos="fade-right">{/* 2nd col*/}
-          <h2>Full-stack Software Engineer</h2>
+          <h2>Software Engineer</h2>
           <div className="flex flex-col gap-10 mt-10">
             {HEROCONTENT.map((content, i) => (
               <div key={i} data-aos="fade-down" data-aos-delay={i * 300} className={`flex items-center w-80 gap-5 ${i === 1 && "flex-row-reverse text-right"}`}>
@@ -101,12 +101,11 @@ const Hero = () => {
                 <p>{content.text}</p>
               </div>))}
           </div>
-          <div className="flex justify-end"><button className="btn">Hire me</button></div>
         </div>
 
       </div>
     </section>
-  );
+  )
 }
 /////////////////////////////////
 Modal.setAppElement("#root")
@@ -216,16 +215,19 @@ const Services = () => {
 /////////////////////////////////
 const PROJECTS=[
   {
-    title: "Gym Website",
-    image: 'project1.png',
+    title: "LeadCoder",
+    image: 'https://leadcoder.vercel.app/leadcoder.jpg',
+    link: 'https://leadcoder.vercel.app/'
   },
   {
-    title: "Social Media web",
-    image: 'project2.png'
+    title: "Gamely",
+    image: 'https://gamelyfrontend.netlify.app/favicon.ico',
+    link: 'https://gamelyfrontend.netlify.app/'
   },
   {
-    title: "Creative Website",
-    image: 'project3.png'
+    title: "Warbler",
+    image: 'https://warblerapp-z4gf.onrender.com/static/images/warbler.jpg',
+    link: 'https://warblerapp-z4gf.onrender.com/'
   }
 ]
 const Projects = () => {
@@ -235,7 +237,7 @@ const Projects = () => {
 
         <div>
           <h2 className="title" data-aos="fade-down">My projects</h2>
-          <h4 className="subtitle" data-aos="fade-down">NOTABLE PROJECTS</h4>
+          <h4 className="subtitle" data-aos="fade-down">Projects highlight</h4>
         </div>
 
         <div className="flex items-center lg:flex-row flex-col-reverse gap-5">
@@ -251,10 +253,10 @@ const Projects = () => {
           >
             {PROJECTS.map((content, i) => (
               <SwiperSlide key={i} className="bg-white rounded-3xl p-5 border-b-8 border-[#FAF9FD] h-fit">
-                <img src={content.image} alt='' />
+                <a href={content.link}><img src={content.image} alt=''/></a>
+                
                 <div className="flex flex-col gap-1 mt-2">
                   <h5 className="font-bold font-Poppins">{content.title}</h5>
-                  <button className="font-bold text-gray self-end">Go there</button>
                 </div>
               </SwiperSlide>))}
           </Swiper>
@@ -297,7 +299,7 @@ const Testimonials = () => {
     <section id="testimonials">
       <div className="md:container px-5 pt-14">
         <h2 className="title" data-aos="fade-down">Testimonials</h2>
-        <h4 className="subtitle" data-aos="fade-down">MY CLIENT REVIEWS</h4>
+        <h4 className="subtitle" data-aos="fade-down">What others say</h4>
         <Swiper
           direction={"vertical"}
           pagination={{clickable: true}}
@@ -385,10 +387,10 @@ const Contact = () => {
   };
 
   return (
-    <section className="bg-text_dark_primary text-white" id="contact">
+    <section className="bg-white text-text_dark_primary" id="contact">
       <Toaster />
       <div className="md:container px-5 py-14">
-        <h2 className="title !text-white" data-aos="fade-down">Contect Me</h2>
+        <h2 className="title" data-aos="fade-down">Contect Me</h2>
         <h4 className="subtitle" data-aos="fade-down">GET IN TOUCH</h4>
         <br />
         <div className="flex gap-10 md:flex-row flex-col">
@@ -429,8 +431,7 @@ export default function App(){
       <Testimonials />
       <HireMe />
       <Contact />
-      <footer className="p-3 text-center">
-        <h6 className="mb-3">Alan Vu</h6>
+      <footer className="p-3 text-center bg-bg_light_primary">
         <p>©AlanPortfolio 2022</p>
       </footer>
     </div>
